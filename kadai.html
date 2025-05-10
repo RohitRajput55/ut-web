@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXCOOK - Premium Kitchen Utensils</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <!-- Add these in head section -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        
+        /* Optional: Add different weights/styles */
+        .light {
+            font-weight: 300;
+        }
+        .bold {
+            font-weight: 700;
+        }
+        .italic {
+            font-style: italic;
+        }
+    </style>
+   
+</head>
+
+<body class="bg-gray-50">
+
+    <style>
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        background: white;
+    }
+
+    /* Add padding to body to account for fixed navbar */
+    
+
+    /* Adjust marquee position */
+    .marquee-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10001;
+        padding: 10px 0px;
+        background: #253244;
+    }
+
+    /* Move main content down */
+    section.relative.h-screen {
+        margin-top: 80px;
+    }
+
+    /* Adjust dropdown positioning */
+    .dropdown-menu {
+        top: calc(100% + 10px) !important;
+    }
+    
+    .dropdown-menu {
+        z-index: 10000 !important; /* Force higher priority */
+        position: absolute;
+        top: calc(100% + 5px) !important;
+    }
+    
+    /* For mobile menu */
+    #mobile-menu {
+        z-index: 9999;
+        position: relative;
+    }
+    
+    /* Hero section z-index adjustment */
+    section.relative.h-screen {
+        z-index: 1; /* Lower than nav's z-index */
+        position: relative;
+    }
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+            
+           
+        }
+    
+        .dropdown-menu::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #d8ab6e;
+        }
+    
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease;
+        }
+    
+        .mobile-menu.active {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+    <!-- Navigation -->
+    <div class="fixed-top-bar">
+    <div class="relative bg-[#253244] text-[#f4dbb0] ">
+        <div class="overflow-hidden">
+            <div class="marquee-container flex items-center whitespace-nowrap">
+                <div class="marquee-content flex items-center space-x-8 animate-marquee">
+                    <!-- Utensil Promo Items -->
+                    <div class="flex items-center space-x-4 text-sm">
+                        <i class="fas fa-certificate text-[#f4dbb0]"></i>
+                        <span>Premium Stainless Steel Cookware Collections</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-truck text-[#f4dbb0]"></i>
+                        <span>Free Shipping on Orders Over $99</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-gift text-[#f4dbb0]"></i>
+                        <span>Special Anniversary Sale - Up to 40% Off</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-shield-alt text-[#f4dbb0]"></i>
+                        <span>Lifetime Warranty on Selected Products</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                    </div>
+                    
+                    <!-- Duplicated for seamless loop -->
+                    <div class="flex items-center space-x-4 text-sm" aria-hidden="true">
+                        <i class="fas fa-certificate text-[#f4dbb0]"></i>
+                        <span>Premium Stainless Steel Cookware Collections</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-truck text-[#f4dbb0]"></i>
+                        <span>Free Shipping on Orders Over $99</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-gift text-[#f4dbb0]"></i>
+                        <span>Special Anniversary Sale - Up to 40% Off</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-shield-alt text-[#f4dbb0]"></i>
+                        <span>Lifetime Warranty on Selected Products</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+            display: inline-block;
+        }
+    
+        .marquee-container:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    
+        .marquee-content {
+            display: inline-flex;
+            min-width: 200%;
+        }
+    </style>
+    
+    <script>
+        // Pause animation when user prefers reduced motion
+        const marquee = document.querySelector('.animate-marquee');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+        if (prefersReducedMotion.matches) {
+            marquee.style.animation = 'none';
+        }
+    </script>
+    <style>
+      
+        
+     
+    .dropdown-menu {
+        top: 100%; /* Positions dropdown immediately below */
+        margin-top: 15px;
+        right: -60px; /* Matches padding-bottom */
+        z-index: 10000; /* Increased z-index to ensure it appears above the marquee */
+    }
+
+
+    
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+           
+            
+        }
+    
+        /* Create invisible hover zone */
+        .nav-dropdown::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            right: 20%;
+            height: 15px;
+            background: transparent;
+           
+        }
+    </style>
+    <section>
+    <nav class="bg-white shadow-lg border-b border-[#d8ab6e] fixed top-[40px] w-full">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center border-b-2 border-[#d8ab6e] pb-1">
+                    <img src="PHOTO-2025-05-06-20-08-25.jpg" alt="LUXCOOK Logo" class="h-12 w-auto">
+                </div>
+
+                <!-- Centered Desktop Menu -->
+                <div class="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                    <a href="/index.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Home</a>
+                    <a href="/about.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">About Us</a>
+                    
+                    <!-- Products Dropdown -->
+                    <div class="nav-dropdown relative">
+                        <button class="text-gray-800 hover:text-[#d8ab6e] font-medium flex items-center group">
+                            Products
+                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu absolute hidden mt-4 py-3 bg-white rounded-lg shadow-xl min-w-[220px] border-2 border-[#d8ab6e] ">
+                            <a href="/kadai.html" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3 opacity-100 transition"></span>
+                                Kadai
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Fry Pans
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Cookware Sets
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Accessories
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+                    <a href="#" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Faq</a>
+                    <a href="#" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Contact</a>
+                </div>
+
+                <!-- Login Button -->
+                <button class="hidden md:block bg-[#d8ab6e] text-white px-6 py-2.5 rounded-lg hover:bg-[#bf945c] transition-colors shadow-sm border-2 border-[#bf945c]">
+                    Login/Register
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-800 hover:text-[#d8ab6e]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-[#d8ab6e]">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">Home</a>
+                
+                <!-- Mobile Products Dropdown -->
+                <div class="relative">
+                    <button id="mobile-products-button" class="flex items-center justify-between w-full text-gray-800 hover:text-[#d8ab6e] py-2">
+                        Products
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="mobile-products-menu" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-[#d8ab6e]">
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Kadai
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Fry Pans
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Cookware Sets
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Accessories
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">About Us</a>
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">Contact</a>
+                <button class="w-full bg-[#d8ab6e] text-white px-6 py-2.5 rounded-lg hover:bg-[#bf945c] transition-colors border-2 border-[#bf945c]">
+                    Login/Register
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenu.style.maxHeight = mobileMenu.classList.contains('active') ? '500px' : '0';
+        });
+
+        // Mobile Products Dropdown Toggle
+        const mobileProductsButton = document.getElementById('mobile-products-button');
+        const mobileProductsMenu = document.getElementById('mobile-products-menu');
+        const mobileProductsArrow = mobileProductsButton.querySelector('svg');
+        
+        mobileProductsButton.addEventListener('click', () => {
+            mobileProductsMenu.classList.toggle('hidden');
+            mobileProductsArrow.classList.toggle('rotate-180');
+        });
+
+        // Close menus when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('#mobile-menu') && 
+                !event.target.closest('#mobile-menu-button')) {
+                mobileMenu.classList.remove('active');
+                mobileMenu.style.maxHeight = '0';
+            }
+        });
+    </script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXCOOK - Premium Kadai Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .product-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .spec-tab.active {
+            background: #d8ab6e;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f5f0]">
+   
+
+    <!-- Product Hero -->
+    <section class="relative h-[60vh] md:mt-[8%] mt-[12%] flex items-center justify-center overflow-hidden">
+        <div class="parallax absolute inset-0 bg-[url('https://img.freepik.com/free-photo/kitchen-product-backdrop-interior-background-image_53876-143215.jpg?t=st=1746696418~exp=1746700018~hmac=a91a326a1e89d8cd07a5819a773431bf5e546c293cad03bca81100bbe21ea67d&w=996')]"></div>
+        <div class="absolute inset-0 bg-[#253244]/60"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-[#f4dbb0] mb-4">
+                Premium <span class="text-[#d8ab6e]">Kadai</span> Collection
+            </h1>
+            <p class="text-xl text-[#f4dbb0]/90 max-w-3xl mx-auto">
+                Crafted for perfect heat distribution and durability
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Filters -->
+    <style>
+        .product-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .product-card.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .filter-btn.active {
+            background: #d8ab6e;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f5f0]">
+    <!-- Product Filters -->
+    <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-wrap gap-3 justify-center">
+            <button class="filter-btn active px-4 py-2 rounded-full border border-[#d8ab6e] text-sm transition"
+                    data-filter="all">
+                All Sizes
+            </button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-[#d8ab6e] text-sm transition"
+                    data-filter="small">
+                Small (1-2L)
+            </button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-[#d8ab6e] text-sm transition"
+                    data-filter="medium">
+                Medium (3-5L)
+            </button>
+            <button class="filter-btn px-4 py-2 rounded-full border border-[#d8ab6e] text-sm transition"
+                    data-filter="large">
+                Large (6-8L)
+            </button>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Small Kadai -->
+            <div class="product-card active bg-white rounded-xl shadow-md transition-all" data-size="small">
+                <div class="h-60 p-4 overflow-hidden">
+                    <img src="assests/image-one.png" alt="Small Kadai" 
+                         class="w-full h-full object-contain hover:scale-105 transition-transform">
+                </div>
+                <div class="p-4 border-t border-[#f4dbb0]">
+                    <h3 class="text-xl font-bold text-[#253244] mb-3">Compact Kadai</h3>
+                    <div class="space-y-2 text-sm text-[#253244]/80">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-weight-hanging text-[#d8ab6e]"></i>
+                            <span>Capacity: 2 Liters</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-ruler text-[#d8ab6e]"></i>
+                            <span>Diameter: 20 cm</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-layer-group text-[#d8ab6e]"></i>
+                            <span>Thickness: 2.5 mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Kadai -->
+            <div class="product-card active bg-white rounded-xl shadow-md transition-all" data-size="medium">
+                <div class="h-60 p-4 overflow-hidden">
+                    <img src="assests/image-two.png" alt="Medium Kadai" 
+                         class="w-full h-full object-contain hover:scale-105 transition-transform">
+                </div>
+                <div class="p-4 border-t border-[#f4dbb0]">
+                    <h3 class="text-xl font-bold text-[#253244] mb-3">Chef's Choice Kadai</h3>
+                    <div class="space-y-2 text-sm text-[#253244]/80">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-weight-hanging text-[#d8ab6e]"></i>
+                            <span>Capacity: 4 Liters</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-ruler text-[#d8ab6e]"></i>
+                            <span>Diameter: 25 cm</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-layer-group text-[#d8ab6e]"></i>
+                            <span>Thickness: 3.0 mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Large Kadai -->
+            <div class="product-card active bg-white rounded-xl shadow-md transition-all" data-size="large">
+                <div class="h-60 p-4 overflow-hidden">
+                    <img src="assests/image-one.png" alt="Large Kadai" 
+                         class="w-full h-full object-contain hover:scale-105 transition-transform">
+                </div>
+                <div class="p-4 border-t border-[#f4dbb0]">
+                    <h3 class="text-xl font-bold text-[#253244] mb-3">Family Size Kadai</h3>
+                    <div class="space-y-2 text-sm text-[#253244]/80">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-weight-hanging text-[#d8ab6e]"></i>
+                            <span>Capacity: 6 Liters</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-ruler text-[#d8ab6e]"></i>
+                            <span>Diameter: 30 cm</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-layer-group text-[#d8ab6e]"></i>
+                            <span>Thickness: 3.5 mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter Functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => 
+                    btn.classList.remove('active', 'bg-[#d8ab6e]', 'text-white'));
+                
+                // Add active class to clicked button
+                this.classList.add('active', 'bg-[#d8ab6e]', 'text-white');
+                
+                const filter = this.dataset.filter;
+                const products = document.querySelectorAll('.product-card');
+
+                products.forEach(product => {
+                    if(filter === 'all' || product.dataset.size === filter) {
+                        product.classList.add('active');
+                        setTimeout(() => product.style.display = 'block', 100);
+                    } else {
+                        product.classList.remove('active');
+                        setTimeout(() => product.style.display = 'none', 100);
+                    }
+                });
+            });
+        });
+
+        // Initial Animation
+        document.querySelectorAll('.product-card').forEach((card, index) => {
+            setTimeout(() => card.classList.add('active'), index * 100);
+        });
+    </script>
+
+    <!-- Technical Specifications -->
+    <section class="py-16 bg-[#253244] text-[#f4dbb0]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Technical Excellence</h2>
+                <p class="text-xl text-[#f4dbb0]/80">Precision engineering for perfect cooking</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="w-16 h-16 bg-[#d8ab6e] rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-thermometer-half text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Heat Distribution</h3>
+                    <p class="text-center text-[#f4dbb0]/80">Triple-layer construction for even heat spread</p>
+                </div>
+                
+                <!-- Add 2 more tech spec cards -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Product Card Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Spec Tab Functionality
+        document.querySelectorAll('.spec-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.spec-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Filter Button Functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('bg-[#d8ab6e]', 'text-white'));
+                this.classList.add('bg-[#d8ab6e]', 'text-white');
+            });
+        });
+    </script>
+   <section class="relative py-20 bg-gradient-to-b from-[#f9fafb] to-[#eef2f6] overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#f4dbb0]/10 rounded-full mix-blend-overlay animate-float"></div>
+        <div class="absolute -bottom-60 -left-60 w-96 h-96 bg-[#253244]/10 rounded-full mix-blend-overlay animate-float-delayed"></div>
+    </div>
+
+    <!-- Section Header -->
+    <div class="container mx-auto px-4 mb-4 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-[#253244] mb-4">
+            Premium <span class="text-[#f4dbb0]">Kadai</span> Collection
+        </h2>
+        <p class="text-xl text-[#6b7280] max-w-2xl mx-auto">
+            Explore our engineered cookware solutions with perfect heat distribution technology
+        </p>
+    </div>
+
+    <!-- Slider Container -->
+    <div class="container  mx-auto px-4">
+       <div class="kadai-slider splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- Slide 1 -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col lg:flex-row items-center gap-12 py-8">
+                            <!-- Image Container -->
+                            <div class="lg:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#f4dbb0]/10 to-transparent rounded-3xl"></div>
+                                <img src="assests/image-two.png" alt="Professional Kadai" 
+                                     class="w-full max-w-xl object-contain transform group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="lg:w-1/2 space-y-6">
+                                <h3 class="text-3xl font-bold text-[#253244]">
+                                    Professional Series
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-[#f4dbb0] rounded-lg flex items-center justify-center mr-4">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-semibold text-[#6b7280]">5-Layer Copper Core Construction</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-xl shadow-sm">
+                                        <p class="text-sm text-[#6b7280]">Capacity</p>
+                                        <p class="text-xl font-bold text-[#253244]">5 Liters</p>
+                                    </div>
+                                </div>
+                                <button class="bg-[#253244] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#1a2436] transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Slide 2 -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col lg:flex-row items-center gap-12 py-8">
+                            <!-- Image Container -->
+                            <div class="lg:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#f4dbb0]/10 to-transparent rounded-3xl"></div>
+                                <img src="assests/image-one.png" alt="Professional Kadai" 
+                                     class="w-full max-w-xl object-contain transform group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="lg:w-1/2 space-y-6">
+                                <h3 class="text-3xl font-bold text-[#253244]">
+                                    Professional Series
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-[#f4dbb0] rounded-lg flex items-center justify-center mr-4">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-semibold text-[#6b7280]">5-Layer Copper Core Construction</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-xl shadow-sm">
+                                        <p class="text-sm text-[#6b7280]">Capacity</p>
+                                        <p class="text-xl font-bold text-[#253244]">5 Liters</p>
+                                    </div>
+                                </div>
+                                <button class="bg-[#253244] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#1a2436] transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="splide__slide">
+                        <div class="flex flex-col lg:flex-row items-center gap-12 py-8">
+                            <!-- Image Container -->
+                            <div class="lg:w-1/2 relative group">
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#f4dbb0]/10 to-transparent rounded-3xl"></div>
+                                <img src="assests/image-two.png" alt="Professional Kadai" 
+                                     class="w-full max-w-xl object-contain transform group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="lg:w-1/2 space-y-6">
+                                <h3 class="text-3xl font-bold text-[#253244]">
+                                    Professional Series
+                                </h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-[#f4dbb0] rounded-lg flex items-center justify-center mr-4">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-semibold text-[#6b7280]">5-Layer Copper Core Construction</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-xl shadow-sm">
+                                        <p class="text-sm text-[#6b7280]">Capacity</p>
+                                        <p class="text-xl font-bold text-[#253244]">5 Liters</p>
+                                    </div>
+                                </div>
+                                <button class="bg-[#253244] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#1a2436] transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Controls -->
+    <!-- <div class="container mx-auto px-4 mt-8">
+        <div class="flex items-center justify-center gap-4">
+            <button class="splide-prev bg-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all hover:bg-[#f4dbb0]">
+                ←
+            </button>
+            <ul class="splide-pagination flex gap-2"></ul>
+            <button class="splide-next bg-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all hover:bg-[#f4dbb0]">
+                →
+            </button>
+        </div>
+    </div> -->
+</section>
+
+<!-- Add Splide CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<style>
+    .kadai-slider .splide__slide {
+        opacity: 0.5;
+        transform: scale(0.9);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .kadai-slider .splide__slide.is-active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    .animate-float {
+        animation: float 8s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+        animation: float 8s ease-in-out infinite 2s;
+    }
+
+    .splide-pagination li button {
+        background: #e5e7eb;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+    }
+
+    .splide-pagination li button.is-active {
+        background: #f4dbb0;
+        transform: scale(1.4);
+    }
+</style>
+
+<!-- Add Splide JS -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Splide
+    const splide = new Splide('.kadai-slider', {
+        type: 'loop',
+        autoplay: true,
+        interval: 5000,
+        speed: 1000,
+        pauseOnHover: false,
+        pauseOnFocus: false,
+        arrows: true,
+        pagination: false,
+        perPage: 1,
+    });
+
+    // Mount the slider
+    splide.mount();
+
+    // Custom Controls
+    const prevButton = document.querySelector('.splide-prev');
+    const nextButton = document.querySelector('.splide-next');
+    const pagination = document.querySelector('.splide-pagination');
+
+    // Create pagination items
+    splide.on('pagination:mounted', (data) => {
+        data.items.forEach((item) => {
+            pagination.appendChild(item.button);
+        });
+    });
+
+    // Update pagination state
+    splide.on('pagination:updated', (data) => {
+        data.items.forEach((item, index) => {
+            item.button.classList.toggle('is-active', index === splide.index);
+        });
+    });
+
+    // Button click handlers
+    prevButton.addEventListener('click', () => splide.go('<'));
+    nextButton.addEventListener('click', () => splide.go('>'));
+
+    // GSAP Animations
+    splide.on('moved', (newIndex) => {
+        const activeSlide = splide.Components.Elements.slides[newIndex];
+        
+        gsap.from(activeSlide.querySelector('img'), {
+            duration: 0.8,
+            x: -100,
+            opacity: 0,
+            ease: "power3.out"
+        });
+
+        gsap.from(activeSlide.querySelectorAll('h3, button, div'), {
+            duration: 0.6,
+            y: 30,
+            opacity: 0,
+            stagger: 0.1,
+            ease: "power2.out"
+        });
+    });
+});
+</script>
+<section class="relative py-20 bg-[#f9fafb] overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#f4dbb0]/10 rounded-full mix-blend-overlay animate-float"></div>
+        <div class="absolute -bottom-60 -left-60 w-96 h-96 bg-[#253244]/10 rounded-full mix-blend-overlay animate-float-delayed"></div>
+    </div>
+
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#253244] mb-4">
+                Complete Your 
+                <span class="text-[#f4dbb0]">Kitchen Arsenal</span>
+            </h2>
+            <p class="text-xl text-[#6b7280] max-w-2xl mx-auto">
+                Explore our full range of professional-grade cookware designed for modern culinary demands
+            </p>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <!-- Product Card 1 -->
+            <div class="product-card bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div class="relative group mb-6 overflow-hidden rounded-xl">
+                    <img src="kadai-pro.png" alt="Professional Kadai" 
+                         class="w-full h-64 object-contain transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#253244]/30 to-transparent"></div>
+                </div>
+                <h3 class="text-2xl font-bold text-[#253244] mb-4">Professional Series</h3>
+                
+                <div class="space-y-4 mb-6">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-[#f4dbb0] rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <span class="text-[#6b7280]">5-Layer Copper Core</span>
+                    </div>
+                    <!-- Add more features -->
+                </div>
+                
+                <div class="border-t border-[#e5e7eb] pt-4">
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <p class="text-sm text-[#6b7280]">Capacity</p>
+                            <p class="text-lg font-bold text-[#253244]">5 Liters</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-[#6b7280]">Thickness</p>
+                            <p class="text-lg font-bold text-[#253244]">2.5mm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat similar cards for other products -->
+        </div>
+
+        <!-- Technical Comparison -->
+        <div class="bg-[#253244] rounded-3xl p-8 md:p-12 shadow-2xl mb-20">
+            <h3 class="text-2xl font-bold text-[#f4dbb0] mb-8">Technical Specifications</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#f4dbb0]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-[#f4dbb0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-lg font-semibold text-white mb-2">Rapid Heat Transfer</h4>
+                    <p class="text-[#e5e7eb]">Copper core base ensures instant heat distribution</p>
+                </div>
+                <!-- Add more tech specs -->
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="text-center bg-gradient-to-r from-[#f4dbb0] to-[#d8ab6e] rounded-2xl p-8 shadow-xl">
+            <h3 class="text-3xl font-bold text-[#253244] mb-4">Ready to Elevate Your Cooking?</h3>
+            <p class="text-[#253244]/90 mb-6">Consult with our kitchenware experts for personalized recommendations</p>
+            <button class="bg-[#253244] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#1a2436] transition-all">
+                Book Consultation
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .product-card {
+        transform: translateY(30px);
+        opacity: 0;
+        transition: all 0.6s ease-out;
+    }
+
+    .product-card.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    .animate-float {
+        animation: float 8s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+        animation: float 8s ease-in-out infinite 2s;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Product card animations
+        const productCards = document.querySelectorAll('.product-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        productCards.forEach(card => observer.observe(card));
+
+        // Hover effects
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${(y - rect.height/2)/20}deg)
+                    rotateY(${-(x - rect.width/2)/20}deg)
+                `;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    });
+</script>
+<!-- Footer Section -->
+<footer class="bg-[#253244] text-[#f4dbb0] pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <!-- Brand Info -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">★★★</span>
+                    <h2 class="text-2xl font-bold">LUXCOOK</h2>
+                </div>
+                <p class="text-sm text-[#f4dbb0]/80">
+                    Crafting culinary excellence through innovative cookware design since 2010
+                </p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-[#d8ab6e] mb-4">Explore</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Our Products</a></li>
+                    <li><a href="#" class="footer-link">Collections</a></li>
+                    <li><a href="#" class="footer-link">Blog</a></li>
+                    <li><a href="#" class="footer-link">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-[#d8ab6e] mb-4">Contact</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-map-marker-alt text-[#d8ab6e]"></i>
+                        <span class="text-sm">123 Culinary Street, Mumbai, India</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-phone text-[#d8ab6e]"></i>
+                        <span class="text-sm">+91 12345 67890</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-envelope text-[#d8ab6e]"></i>
+                        <span class="text-sm">hello@luxcook.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-[#d8ab6e] mb-4">Newsletter</h3>
+                <p class="text-sm text-[#f4dbb0]/80">
+                    Subscribe for exclusive updates and cooking tips
+                </p>
+                <form class="mt-4   gap-2">
+                    <input type="email" placeholder="Your email" 
+                           class="flex-1 px-4 py-2 rounded-lg bg-[#f4dbb0]/10 border border-[#d8ab6e]/30 focus:outline-none focus:border-[#d8ab6e]">
+                    <button class="px-6 py-2 mt-4 bg-[#d8ab6e] text-[#253244] rounded-lg hover:bg-[#f4dbb0] transition">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Copyright & Legal -->
+        <div class="border-t border-[#f4dbb0]/20 pt-8 mt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-sm text-[#f4dbb0]/60">
+                    © 2024 LUXCOOK. All rights reserved
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm text-[#f4dbb0]/60 hover:text-[#d8ab6e]">Privacy Policy</a>
+                    <a href="#" class="text-sm text-[#f4dbb0]/60 hover:text-[#d8ab6e]">Terms of Service</a>
+                    <a href="#" class="text-sm text-[#f4dbb0]/60 hover:text-[#d8ab6e]">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer-link {
+        @apply text-[#f4dbb0]/80 hover:text-[#d8ab6e] transition-colors text-sm;
+    }
+
+    .social-icon {
+        @apply w-10 h-10 rounded-full bg-[#f4dbb0]/10 flex items-center justify-center hover:bg-[#d8ab6e] transition;
+    }
+
+    .social-icon i {
+        @apply text-[#f4dbb0] hover:text-[#253244];
+    }
+
+    input::placeholder {
+        @apply text-[#f4dbb0]/60;
+    }
+</style>
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXCOOK - Premium Kitchen Utensils</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        
+        /* Optional: Add different weights/styles */
+        .light {
+            font-weight: 300;
+        }
+        .bold {
+            font-weight: 700;
+        }
+        .italic {
+            font-style: italic;
+        }
+    </style>
+   
+</head>
+
+<body class="bg-gray-50">
+
+    <style>
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        background: white;
+    }
+
+    /* Add padding to body to account for fixed navbar */
+    
+
+    /* Adjust marquee position */
+    .marquee-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10001;
+        padding: 10px 0px;
+        background: #253244;
+    }
+
+    /* Move main content down */
+    section.relative.h-screen {
+        margin-top: 80px;
+    }
+
+    /* Adjust dropdown positioning */
+    .dropdown-menu {
+        top: calc(100% + 10px) !important;
+    }
+    
+    .dropdown-menu {
+        z-index: 10000 !important; /* Force higher priority */
+        position: absolute;
+        top: calc(100% + 2px) !important;
+    }
+    
+    /* For mobile menu */
+    #mobile-menu {
+        z-index: 9999;
+        position: relative;
+    }
+    
+    /* Hero section z-index adjustment */
+    section.relative.h-screen {
+        z-index: 1; /* Lower than nav's z-index */
+        position: relative;
+    }
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+            
+           
+        }
+    
+        .dropdown-menu::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #d8ab6e;
+        }
+    
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease;
+        }
+    
+        .mobile-menu.active {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+    <!-- Navigation -->
+    <div class="fixed-top-bar">
+    <div class="relative bg-[#253244] text-[#f4dbb0] ">
+        <div class="overflow-hidden">
+            <div class="marquee-container flex items-center whitespace-nowrap">
+                <div class="marquee-content flex items-center space-x-8 animate-marquee">
+                    <!-- Utensil Promo Items -->
+                    <div class="flex items-center space-x-4 text-sm">
+                        <i class="fas fa-certificate text-[#f4dbb0]"></i>
+                        <span>Premium Stainless Steel Cookware Collections</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-truck text-[#f4dbb0]"></i>
+                        <span>Free Shipping on Orders Over $99</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-gift text-[#f4dbb0]"></i>
+                        <span>Special Anniversary Sale - Up to 40% Off</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-shield-alt text-[#f4dbb0]"></i>
+                        <span>Lifetime Warranty on Selected Products</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                    </div>
+                    
+                    <!-- Duplicated for seamless loop -->
+                    <div class="flex items-center space-x-4 text-sm" aria-hidden="true">
+                        <i class="fas fa-certificate text-[#f4dbb0]"></i>
+                        <span>Premium Stainless Steel Cookware Collections</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-truck text-[#f4dbb0]"></i>
+                        <span>Free Shipping on Orders Over $99</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-gift text-[#f4dbb0]"></i>
+                        <span>Special Anniversary Sale - Up to 40% Off</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-shield-alt text-[#f4dbb0]"></i>
+                        <span>Lifetime Warranty on Selected Products</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+            display: inline-block;
+        }
+    
+        .marquee-container:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    
+        .marquee-content {
+            display: inline-flex;
+            min-width: 200%;
+        }
+    </style>
+    
+    <script>
+        // Pause animation when user prefers reduced motion
+        const marquee = document.querySelector('.animate-marquee');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+        if (prefersReducedMotion.matches) {
+            marquee.style.animation = 'none';
+        }
+    </script>
+    <style>
+      
+        
+     
+    .dropdown-menu {
+        top: 100%; /* Positions dropdown immediately below */
+        margin-top: 15px;
+        right: -60px; /* Matches padding-bottom */
+        z-index: 10000; /* Increased z-index to ensure it appears above the marquee */
+    }
+
+
+    
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+           
+            
+        }
+    
+        /* Create invisible hover zone */
+        .nav-dropdown::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            right: 20%;
+            height: 15px;
+            background: transparent;
+           
+        }
+    </style>
+    <section>
+    <nav class="bg-white shadow-lg border-b border-[#d8ab6e] fixed top-[40px] w-full">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center border-b-2 border-[#d8ab6e] pb-1">
+                    <img src="PHOTO-2025-05-06-20-08-25.jpg" alt="LUXCOOK Logo" class="h-12 w-auto">
+                </div>
+
+                <!-- Centered Desktop Menu -->
+                <div class="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                    <a href="/index.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Home</a>
+                    <a href="/about.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">About Us</a>
+                    
+                    <!-- Products Dropdown -->
+                    <div class="nav-dropdown relative">
+                        <button class="text-gray-800 hover:text-[#d8ab6e] font-medium flex items-center group">
+                            Products
+                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu absolute hidden mt-4 py-3 bg-white rounded-lg shadow-xl min-w-[220px] border-2 border-[#d8ab6e] ">
+                            <a href="/kadai.html" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3 opacity-100 transition"></span>
+                                Kadai
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Fry Pans
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Cookware Sets
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Accessories
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+                    <a href="/faq.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Faq</a>
+                    <a href="/contact.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Contact</a>
+                </div>
+
+                <!-- Login Button -->
+                <button class="hidden md:block bg-[#d8ab6e] text-white px-6 py-2.5 rounded-lg hover:bg-[#bf945c] transition-colors shadow-sm border-2 border-[#bf945c]">
+                    Login/Register
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-800 hover:text-[#d8ab6e]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-[#d8ab6e]">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">Home</a>
+                
+                <!-- Mobile Products Dropdown -->
+                <div class="relative">
+                    <button id="mobile-products-button" class="flex items-center justify-between w-full text-gray-800 hover:text-[#d8ab6e] py-2">
+                        Products
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="mobile-products-menu" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-[#d8ab6e]">
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Kadai
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Fry Pans
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Cookware Sets
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Accessories
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">About Us</a>
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">Contact</a>
+                <button class="w-full bg-[#d8ab6e] text-white px-6 py-2.5 rounded-lg hover:bg-[#bf945c] transition-colors border-2 border-[#bf945c]">
+                    Login/Register
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenu.style.maxHeight = mobileMenu.classList.contains('active') ? '500px' : '0';
+        });
+
+        // Mobile Products Dropdown Toggle
+        const mobileProductsButton = document.getElementById('mobile-products-button');
+        const mobileProductsMenu = document.getElementById('mobile-products-menu');
+        const mobileProductsArrow = mobileProductsButton.querySelector('svg');
+        
+        mobileProductsButton.addEventListener('click', () => {
+            mobileProductsMenu.classList.toggle('hidden');
+            mobileProductsArrow.classList.toggle('rotate-180');
+        });
+
+        // Close menus when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('#mobile-menu') && 
+                !event.target.closest('#mobile-menu-button')) {
+                mobileMenu.classList.remove('active');
+                mobileMenu.style.maxHeight = '0';
+            }
+        });
+    </script>
+   
+</section>
+
+<section class="min-h-screen bg-gradient-to-b from-[#f9fafb] to-[#eef2f6] overflow-hidden">
+    <!-- Hero Section -->
+    <div class="relative h-[60vh] md:mt-[8%] mt-[12%] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[url('https://img.freepik.com/free-photo/3d-rendering-modern-kitchen-counter-with-white-biege-design_105762-2228.jpg?t=st=1746859740~exp=1746863340~hmac=f10e4c9fb25ef9c6664d49d2f2bef0cfa31f459b7dacd043b334a731894ffd5b&w=740')] bg-cover bg-center transform translate-z-0" 
+                 style="background-attachment: fixed"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#253244]/90 to-[#1a2436]/90"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                Let's Create 
+                <span class="text-[#f4dbb0]">Together</span>
+            </h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                Our culinary experts are ready to assist you with any inquiries or custom requirements
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Content -->
+    <div class="container mx-auto px-4 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Contact Form -->
+            <div class="relative">
+                <div class="absolute -top-20 left-0 w-72 h-72 bg-[#f4dbb0]/10 rounded-full mix-blend-overlay animate-float"></div>
+                
+                <div class="relative bg-white rounded-3xl p-8 shadow-xl z-10">
+                    <h2 class="text-3xl font-bold text-[#253244] mb-8">Send Us a Message</h2>
+                    
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <input type="text" 
+                                       class="w-full px-4 py-3 rounded-lg border border-[#e5e7eb] focus:border-[#f4dbb0] focus:ring-2 focus:ring-[#f4dbb0]/30 transition-all"
+                                       placeholder="Full Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" 
+                                       class="w-full px-4 py-3 rounded-lg border border-[#e5e7eb] focus:border-[#f4dbb0] focus:ring-2 focus:ring-[#f4dbb0]/30 transition-all"
+                                       placeholder="Email Address">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="tel" 
+                                   class="w-full px-4 py-3 rounded-lg border border-[#e5e7eb] focus:border-[#f4dbb0] focus:ring-2 focus:ring-[#f4dbb0]/30 transition-all"
+                                   placeholder="Phone Number">
+                        </div>
+
+                        <div class="form-group">
+                            <textarea 
+                                class="w-full px-4 py-3 rounded-lg border border-[#e5e7eb] focus:border-[#f4dbb0] focus:ring-2 focus:ring-[#f4dbb0]/30 transition-all h-40"
+                                placeholder="Your Message"></textarea>
+                        </div>
+
+                        <button class="bg-[#f4dbb0] text-[#253244] px-8 py-4 rounded-full font-bold hover:bg-[#d8ab6e] transition-all transform hover:scale-105 w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="space-y-8">
+                <!-- Info Cards -->
+                <div class="bg-[#253244] rounded-3xl p-8 text-white shadow-xl">
+                    <h3 class="text-2xl font-bold text-[#f4dbb0] mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-[#f4dbb0]/10 rounded-xl flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-[#f4dbb0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Headquarters</h4>
+                                <p class="text-[#e5e7eb]">123 Culinary Street<br>Kitchen District<br>Delhi 110001</p>
+                            </div>
+                        </div>
+
+                        <!-- Repeat similar blocks for phone and email -->
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.566415693864!2d77.20790741508233!3d28.613900982424718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2a99b6f9fa7%3A0x83a25e55f0af54c!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1659876748389!5m2!1sen!2sin" 
+                        class="w-full h-96 border-0" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <!-- Social Links -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-[#253244] mb-6">Connect With Us</h3>
+                    <div class="flex space-x-6">
+                        <a href="#" class="social-icon">
+                            <svg class="w-8 h-8 text-[#253244] hover:text-[#f4dbb0] transition-all">...</svg>
+                        </a>
+                        <!-- Add more social icons -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ CTA -->
+    <div class="bg-[#253244] mt-20 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-[#f4dbb0] mb-6">Need Immediate Help?</h2>
+            <p class="text-white/90 max-w-2xl mx-auto mb-8">
+                Explore our FAQ section or connect with our 24/7 customer support team
+            </p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-[#f4dbb0] text-[#253244] px-8 py-3 rounded-full font-semibold hover:bg-[#d8ab6e] transition-all">
+                    Visit FAQ
+                </button>
+                <button class="border-2 border-[#f4dbb0] text-[#f4dbb0] px-8 py-3 rounded-full font-semibold hover:bg-[#f4dbb0]/10 transition-all">
+                    Live Chat
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .form-group input,
+    .form-group textarea {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .social-icon {
+        transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: translateY(-3px);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .form-group:focus-within label {
+        transform: translateY(-120%);
+        font-size: 0.875rem;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form animations
+        gsap.from(".form-group", {
+            opacity: 0,
+            y: 30,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "form",
+                start: "top center"
+            }
+        });
+
+        // Map animation
+        gsap.from("iframe", {
+            opacity: 0,
+            scale: 0.95,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "iframe",
+                start: "top center"
+            }
+        });
+
+        // Social icons hover
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                gsap.to(icon, {
+                    duration: 0.3,
+                    y: -5,
+                    ease: "power2.out"
+                });
+            });
+            
+            icon.addEventListener('mouseleave', () => {
+                gsap.to(icon, {
+                    duration: 0.3,
+                    y: 0,
+                    ease: "power2.out"
+                });
+            });
+        });
+
+        // Input label animation
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('focus', () => {
+                const label = input.previousElementSibling;
+                if(label) {
+                    gsap.to(label, {
+                        duration: 0.3,
+                        y: -20,
+                        opacity: 0.8
+                    });
+                }
+            });
+            
+            input.addEventListener('blur', () => {
+                const label = input.previousElementSibling;
+                if(label && !input.value) {
+                    gsap.to(label, {
+                        duration: 0.3,
+                        y: 0,
+                        opacity: 1
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

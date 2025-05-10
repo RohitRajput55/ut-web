@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXCOOK - Premium Kitchen Utensils</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+        }
+        
+        /* Optional: Add different weights/styles */
+        .light {
+            font-weight: 300;
+        }
+        .bold {
+            font-weight: 700;
+        }
+        .italic {
+            font-style: italic;
+        }
+    </style>
+   
+</head>
+
+<body class="bg-gray-50">
+
+    <style>
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        background: white;
+    }
+
+    /* Add padding to body to account for fixed navbar */
+    
+
+    /* Adjust marquee position */
+    .marquee-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10001;
+        padding: 10px 0px;
+        background: #253244;
+    }
+
+    /* Move main content down */
+    section.relative.h-screen {
+        margin-top: 80px;
+    }
+
+    /* Adjust dropdown positioning */
+    .dropdown-menu {
+        top: calc(100% + 10px) !important;
+    }
+    
+    .dropdown-menu {
+        z-index: 10000 !important; /* Force higher priority */
+        position: absolute;
+        top: calc(100% + 5px) !important;
+    }
+    
+    /* For mobile menu */
+    #mobile-menu {
+        z-index: 9999;
+        position: relative;
+    }
+    
+    /* Hero section z-index adjustment */
+    section.relative.h-screen {
+        z-index: 1; /* Lower than nav's z-index */
+        position: relative;
+    }
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+            
+           
+        }
+    
+        .dropdown-menu::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #d8ab6e;
+        }
+    
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease;
+        }
+    
+        .mobile-menu.active {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+    <!-- Navigation -->
+    <div class="fixed-top-bar">
+    <div class="relative bg-[#253244] text-[#f4dbb0] ">
+        <div class="overflow-hidden">
+            <div class="marquee-container flex items-center whitespace-nowrap">
+                <div class="marquee-content flex items-center space-x-8 animate-marquee">
+                    <!-- Utensil Promo Items -->
+                    <div class="flex items-center space-x-4 text-sm">
+                        <i class="fas fa-certificate text-[#f4dbb0]"></i>
+                        <span>Premium Stainless Steel Cookware Collections</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-truck text-[#f4dbb0]"></i>
+                        <span>Free Shipping on Orders Over $99</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-gift text-[#f4dbb0]"></i>
+                        <span>Special Anniversary Sale - Up to 40% Off</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-shield-alt text-[#f4dbb0]"></i>
+                        <span>Lifetime Warranty on Selected Products</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                    </div>
+                    
+                    <!-- Duplicated for seamless loop -->
+                    <div class="flex items-center space-x-4 text-sm" aria-hidden="true">
+                        <i class="fas fa-certificate text-[#f4dbb0]"></i>
+                        <span>Premium Stainless Steel Cookware Collections</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-truck text-[#f4dbb0]"></i>
+                        <span>Free Shipping on Orders Over $99</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-gift text-[#f4dbb0]"></i>
+                        <span>Special Anniversary Sale - Up to 40% Off</span>
+                        <span class="text-[#f4dbb0] opacity-70">|</span>
+                        <i class="fas fa-shield-alt text-[#f4dbb0]"></i>
+                        <span>Lifetime Warranty on Selected Products</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+            display: inline-block;
+        }
+    
+        .marquee-container:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    
+        .marquee-content {
+            display: inline-flex;
+            min-width: 200%;
+        }
+    </style>
+    
+    <script>
+        // Pause animation when user prefers reduced motion
+        const marquee = document.querySelector('.animate-marquee');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+        if (prefersReducedMotion.matches) {
+            marquee.style.animation = 'none';
+        }
+    </script>
+    <style>
+      
+        
+     
+    .dropdown-menu {
+        top: 100%; /* Positions dropdown immediately below */
+        margin-top: 15px;
+        right: -60px; /* Matches padding-bottom */
+        z-index: 10000; /* Increased z-index to ensure it appears above the marquee */
+    }
+
+
+    
+        .nav-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+           
+            
+        }
+    
+        /* Create invisible hover zone */
+        .nav-dropdown::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            right: 20%;
+            height: 15px;
+            background: transparent;
+           
+        }
+    </style>
+    <section>
+    <nav class="bg-white shadow-lg border-b border-[#d8ab6e] fixed top-[40px] w-full">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center border-b-2 border-[#d8ab6e] pb-1">
+                    <img src="PHOTO-2025-05-06-20-08-25.jpg" alt="LUXCOOK Logo" class="h-12 w-auto">
+                </div>
+
+                <!-- Centered Desktop Menu -->
+                <div class="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                    <a href="/index.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Home</a>
+                    <a href="/about.html" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">About Us</a>
+                    
+                    <!-- Products Dropdown -->
+                    <div class="nav-dropdown relative">
+                        <button class="text-gray-800 hover:text-[#d8ab6e] font-medium flex items-center group">
+                            Products
+                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu absolute hidden mt-4 py-3 bg-white rounded-lg shadow-xl min-w-[220px] border-2 border-[#d8ab6e] ">
+                            <a href="/kadai.html" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3 opacity-100 transition"></span>
+                                Kadai
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Fry Pans
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group border-b border-[#d8ab6e]/50">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Cookware Sets
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="flex items-center px-5 py-3 text-gray-700 hover:bg-[#d8ab6e]/10 group">
+                                <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3  transition"></span>
+                                Accessories
+                                <svg class="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+                    <a href="#" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Faq</a>
+                    <a href="#" class="text-gray-800 hover:text-[#d8ab6e] font-medium transition-colors">Contact</a>
+                </div>
+
+                <!-- Login Button -->
+                <button class="hidden md:block bg-[#d8ab6e] text-white px-6 py-2.5 rounded-lg hover:bg-[#bf945c] transition-colors shadow-sm border-2 border-[#bf945c]">
+                    Login/Register
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 text-gray-800 hover:text-[#d8ab6e]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-[#d8ab6e]">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">Home</a>
+                
+                <!-- Mobile Products Dropdown -->
+                <div class="relative">
+                    <button id="mobile-products-button" class="flex items-center justify-between w-full text-gray-800 hover:text-[#d8ab6e] py-2">
+                        Products
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="#d8ab6e" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="mobile-products-menu" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-[#d8ab6e]">
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Kadai
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Fry Pans
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Cookware Sets
+                        </a>
+                        <a href="#" class="flex items-center text-gray-600 hover:text-[#d8ab6e] py-2">
+                            <span class="w-2 h-2 bg-[#d8ab6e] rounded-full mr-3"></span>
+                            Accessories
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">About Us</a>
+                <a href="#" class="block text-gray-800 hover:text-[#d8ab6e] py-2">Contact</a>
+                <button class="w-full bg-[#d8ab6e] text-white px-6 py-2.5 rounded-lg hover:bg-[#bf945c] transition-colors border-2 border-[#bf945c]">
+                    Login/Register
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenu.style.maxHeight = mobileMenu.classList.contains('active') ? '500px' : '0';
+        });
+
+        // Mobile Products Dropdown Toggle
+        const mobileProductsButton = document.getElementById('mobile-products-button');
+        const mobileProductsMenu = document.getElementById('mobile-products-menu');
+        const mobileProductsArrow = mobileProductsButton.querySelector('svg');
+        
+        mobileProductsButton.addEventListener('click', () => {
+            mobileProductsMenu.classList.toggle('hidden');
+            mobileProductsArrow.classList.toggle('rotate-180');
+        });
+
+        // Close menus when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('#mobile-menu') && 
+                !event.target.closest('#mobile-menu-button')) {
+                mobileMenu.classList.remove('active');
+                mobileMenu.style.maxHeight = '0';
+            }
+        });
+    </script>
+
+<section class="min-h-screen bg-gradient-to-b from-[#f9fafb] to-[#eef2f6] py-20">
+    <!-- Hero Section -->
+    <div class="container md:mt-[8%] mt-[16%] mx-auto px-4 mb-16">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2">
+                <h1 class="text-4xl md:text-6xl font-bold text-[#253244] mb-6">
+                    Frequently Asked
+                    <span class="text-[#f4dbb0]">Questions</span>
+                </h1>
+                <p class="text-xl text-[#6b7280] mb-8">
+                    Find answers to common queries about our products, materials, and manufacturing processes.
+                </p>
+                <div class="bg-[#f4dbb0]/10 p-6 rounded-xl border-l-4 border-[#f4dbb0]">
+                    <p class="text-[#253244] font-semibold">
+                        Can't find what you're looking for? 
+                        <a href="#" class="text-[#f4dbb0] hover:underline">Contact our support team</a>
+                    </p>
+                </div>
+            </div>
+            <div class="lg:w-1/2 mt-12 lg:mt-0">
+                <div class="bg-[url('https://img.freepik.com/free-photo/kitchen-product-backdrop-interior-background-image_53876-143215.jpg?t=st=1746696418~exp=1746700018~hmac=a91a326a1e89d8cd07a5819a773431bf5e546c293cad03bca81100bbe21ea67d&w=996')] bg-cover bg-center h-96 rounded-3xl shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#253244]/80 to-transparent"></div>
+                    <div class="relative z-10 p-8 text-white">
+                        <div class="w-16 h-16 bg-[#f4dbb0] rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[#253244]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Quick Assistance</h3>
+                        <p class="text-[#e5e7eb]">24/7 customer support available for all your cookware queries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-lg transition-all">
+                    <button class="w-full text-left p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-[#253244]">
+                            What makes your kadai different from regular cookware?
+                        </h3>
+                        <svg class="w-6 h-6 text-[#f4dbb0] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="answer-container overflow-hidden">
+                        <div class="px-6 pb-6 pt-2 border-t border-[#e5e7eb]">
+                            <p class="text-[#6b7280]">
+                                Our kadai features a unique 5-layer construction with a copper core base, 
+                                stainless steel interior, and aluminum reinforcement for perfect heat 
+                                distribution. The ergonomic handle design stays cool while cooking, 
+                                and the ceramic-reinforced coating ensures decades of non-stick performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-lg transition-all">
+                    <button class="w-full text-left p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-[#253244]">
+                            How do I maintain the cookware's finish?
+                        </h3>
+                        <svg class="w-6 h-6 text-[#f4dbb0] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="answer-container overflow-hidden">
+                        <div class="px-6 pb-6 pt-2 border-t border-[#e5e7eb]">
+                            <p class="text-[#6b7280]">
+                                For optimal performance:
+                            </p>
+                            <ul class="list-disc pl-6 mt-2 space-y-2 text-[#6b7280]">
+                                <li>Use wooden or silicone utensils</li>
+                                <li>Clean with mild detergent and soft sponge</li>
+                                <li>Avoid thermal shock (sudden temperature changes)</li>
+                                <li>Season monthly with cooking oil</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more FAQ items following the same structure -->
+
+                <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-lg transition-all">
+                    <button class="w-full text-left p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-[#253244]">
+                            What makes your kadai different from regular cookware?
+                        </h3>
+                        <svg class="w-6 h-6 text-[#f4dbb0] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="answer-container overflow-hidden">
+                        <div class="px-6 pb-6 pt-2 border-t border-[#e5e7eb]">
+                            <p class="text-[#6b7280]">
+                                Our kadai features a unique 5-layer construction with a copper core base, 
+                                stainless steel interior, and aluminum reinforcement for perfect heat 
+                                distribution. The ergonomic handle design stays cool while cooking, 
+                                and the ceramic-reinforced coating ensures decades of non-stick performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-lg transition-all">
+                    <button class="w-full text-left p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-[#253244]">
+                            What makes your kadai different from regular cookware?
+                        </h3>
+                        <svg class="w-6 h-6 text-[#f4dbb0] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="answer-container overflow-hidden">
+                        <div class="px-6 pb-6 pt-2 border-t border-[#e5e7eb]">
+                            <p class="text-[#6b7280]">
+                                Our kadai features a unique 5-layer construction with a copper core base, 
+                                stainless steel interior, and aluminum reinforcement for perfect heat 
+                                distribution. The ergonomic handle design stays cool while cooking, 
+                                and the ceramic-reinforced coating ensures decades of non-stick performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-white rounded-2xl shadow-md hover:shadow-lg transition-all">
+                    <button class="w-full text-left p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-[#253244]">
+                            What makes your kadai different from regular cookware?
+                        </h3>
+                        <svg class="w-6 h-6 text-[#f4dbb0] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="answer-container overflow-hidden">
+                        <div class="px-6 pb-6 pt-2 border-t border-[#e5e7eb]">
+                            <p class="text-[#6b7280]">
+                                Our kadai features a unique 5-layer construction with a copper core base, 
+                                stainless steel interior, and aluminum reinforcement for perfect heat 
+                                distribution. The ergonomic handle design stays cool while cooking, 
+                                and the ceramic-reinforced coating ensures decades of non-stick performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="mt-16 text-center">
+                <div class="bg-[#253244] rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold text-[#f4dbb0] mb-4">Still Have Questions?</h3>
+                    <p class="text-[#e5e7eb] mb-6">Our culinary experts are ready to assist you</p>
+                    <button class="bg-[#f4dbb0] text-[#253244] px-8 py-3 rounded-full font-semibold hover:bg-[#d8ab6e] transition-all">
+                        Contact Support
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-item {
+        transition: all 0.3s ease-out;
+    }
+
+    .faq-item.active {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .answer-container {
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .faq-item.active .answer-container {
+        max-height: 500px;
+    }
+
+    .faq-item.active svg {
+        transform: rotate(180deg);
+    }
+
+    @media (max-width: 768px) {
+        .faq-item button {
+            padding: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Accordion Functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const btn = item.querySelector('button');
+            const answer = item.querySelector('.answer-container');
+
+            btn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                faqItems.forEach(otherItem => {
+                    if(otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        gsap.to(otherItem.querySelector('.answer-container'), {
+                            maxHeight: 0,
+                            duration: 0.3
+                        });
+                        otherItem.querySelector('svg').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+                gsap.to(answer, {
+                    maxHeight: item.classList.contains('active') ? answer.scrollHeight + 'px' : 0,
+                    duration: 0.3
+                });
+                
+                gsap.to(btn.querySelector('svg'), {
+                    rotation: item.classList.contains('active') ? 180 : 0,
+                    duration: 0.3
+                });
+            });
+        });
+
+        // GSAP Animations
+        document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        gsap.to(item, {
+            duration: 0.3,
+            scale: 1.02,
+            ease: "power2.out"
+        });
+    });
+
+    item.addEventListener('mouseleave', () => {
+        gsap.to(item, {
+            duration: 0.3,
+            scale: 1,
+            ease: "power2.out"
+        });
+    });
+});
+    });
+</script>
+<section class="relative py-20 bg-gradient-to-b from-[#f9fafb] to-[#eef2f6] overflow-hidden">
+    <!-- Geometric Decorations -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#f4dbb0]/5"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#253244]/5 clip-path-polygon"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div class="inline-flex flex-col items-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#253244] mb-4">
+                    Professional 
+                    <span class="text-[#f4dbb0] relative">
+                        Cookware
+                        <div class="absolute bottom-0 left-0 w-full h-1 bg-[#f4dbb0]/30"></div>
+                    </span>
+                </h2>
+                <p class="text-xl text-[#6b7280] max-w-2xl mt-4">
+                    Precision-engineered culinary tools for exceptional cooking performance
+                </p>
+            </div>
+        </div>
+
+        <!-- Enhanced Slider Container -->
+        <div class="cookware-slider splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- Kadai Slide -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col lg:flex-row items-center gap-10 py-8 px-6">
+                            <!-- Image Container -->
+                            <div class="lg:w-1/2 relative group overflow-hidden rounded-2xl bg-white  transition-shadow duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#f4dbb0]/10 to-transparent"></div>
+                                <img src="assests/image-one.png" alt="Premium Kadai" 
+                                     class="w-full max-w-md object-contain transform group-hover:scale-[1.02] transition-transform duration-700">
+                            </div>
+                            
+                            <!-- Details -->
+                            <div class="lg:w-1/2 space-y-6">
+                                <div class="border-l-4 border-[#f4dbb0] pl-4">
+                                    <h3 class="text-3xl font-bold text-[#253244] mb-2">Multi-Purpose Kadai</h3>
+                                    <p class="text-[#6b7280] text-lg">Engineered for optimal heat distribution and retention</p>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-5">
+                                    <div class="bg-white p-5 rounded-xl shadow-md border border-[#e5e7eb]">
+                                        <p class="text-sm text-[#6b7280] mb-1">Best For</p>
+                                        <p class="text-lg font-semibold text-[#253244]">Deep Frying</p>
+                                    </div>
+                                    <div class="bg-white p-5 rounded-xl shadow-md border border-[#e5e7eb]">
+                                        <p class="text-sm text-[#6b7280] mb-1">Material</p>
+                                        <p class="text-lg font-semibold text-[#253244]">Cast Iron</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center group">
+                                        <div class="w-10 h-10 bg-[#f4dbb0] rounded-lg flex items-center justify-center mr-4 transform group-hover:rotate-12 transition-transform">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="text-[#6b7280]">Triple-layer ceramic coating</span>
+                                    </div>
+                                    <!-- Additional features -->
+                                </div>
+
+                                <button class="relative overflow-hidden bg-[#253244] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#1a2436] transition-all group">
+                                    <span class="relative z-10">Explore Collection</span>
+                                    <div class="absolute inset-0 bg-[#f4dbb0] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Tawa Slide -->
+                    
+                    <li class="splide__slide">
+                        <div class="flex flex-col lg:flex-row items-center gap-10 py-8 px-6">
+                            <!-- Image Container -->
+                            <div class="lg:w-1/2 relative group overflow-hidden rounded-2xl bg-white  transition-shadow duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#f4dbb0]/10 to-transparent"></div>
+                                <img src="assests/image-two.png" alt="Premium Kadai" 
+                                     class="w-full max-w-md object-contain transform group-hover:scale-[1.02] transition-transform duration-700">
+                            </div>
+                            
+                            <!-- Details -->
+                            <div class="lg:w-1/2 space-y-6">
+                                <div class="border-l-4 border-[#f4dbb0] pl-4">
+                                    <h3 class="text-3xl font-bold text-[#253244] mb-2">Multi-Purpose Kadai</h3>
+                                    <p class="text-[#6b7280] text-lg">Engineered for optimal heat distribution and retention</p>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-5">
+                                    <div class="bg-white p-5 rounded-xl shadow-md border border-[#e5e7eb]">
+                                        <p class="text-sm text-[#6b7280] mb-1">Best For</p>
+                                        <p class="text-lg font-semibold text-[#253244]">Deep Frying</p>
+                                    </div>
+                                    <div class="bg-white p-5 rounded-xl shadow-md border border-[#e5e7eb]">
+                                        <p class="text-sm text-[#6b7280] mb-1">Material</p>
+                                        <p class="text-lg font-semibold text-[#253244]">Cast Iron</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center group">
+                                        <div class="w-10 h-10 bg-[#f4dbb0] rounded-lg flex items-center justify-center mr-4 transform group-hover:rotate-12 transition-transform">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="text-[#6b7280]">Triple-layer ceramic coating</span>
+                                    </div>
+                                    <!-- Additional features -->
+                                </div>
+
+                                <button class="relative overflow-hidden bg-[#253244] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#1a2436] transition-all group">
+                                    <span class="relative z-10">Explore Collection</span>
+                                    <div class="absolute inset-0 bg-[#f4dbb0] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="splide__slide">
+                        <div class="flex flex-col lg:flex-row items-center gap-10 py-8 px-6">
+                            <!-- Image Container -->
+                            <div class="lg:w-1/2 relative group overflow-hidden rounded-2xl bg-white  transition-shadow duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#f4dbb0]/10 to-transparent"></div>
+                                <img src="assests/image-one.png" alt="Premium Kadai" 
+                                     class="w-full max-w-md object-contain transform group-hover:scale-[1.02] transition-transform duration-700">
+                            </div>
+                            
+                            <!-- Details -->
+                            <div class="lg:w-1/2 space-y-6">
+                                <div class="border-l-4 border-[#f4dbb0] pl-4">
+                                    <h3 class="text-3xl font-bold text-[#253244] mb-2">Multi-Purpose Kadai</h3>
+                                    <p class="text-[#6b7280] text-lg">Engineered for optimal heat distribution and retention</p>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-5">
+                                    <div class="bg-white p-5 rounded-xl shadow-md border border-[#e5e7eb]">
+                                        <p class="text-sm text-[#6b7280] mb-1">Best For</p>
+                                        <p class="text-lg font-semibold text-[#253244]">Deep Frying</p>
+                                    </div>
+                                    <div class="bg-white p-5 rounded-xl shadow-md border border-[#e5e7eb]">
+                                        <p class="text-sm text-[#6b7280] mb-1">Material</p>
+                                        <p class="text-lg font-semibold text-[#253244]">Cast Iron</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center group">
+                                        <div class="w-10 h-10 bg-[#f4dbb0] rounded-lg flex items-center justify-center mr-4 transform group-hover:rotate-12 transition-transform">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="text-[#6b7280]">Triple-layer ceramic coating</span>
+                                    </div>
+                                    <!-- Additional features -->
+                                </div>
+
+                                <button class="relative overflow-hidden bg-[#253244] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#1a2436] transition-all group">
+                                    <span class="relative z-10">Explore Collection</span>
+                                    <div class="absolute inset-0 bg-[#f4dbb0] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Modern Controls -->
+        <div class="mt-12 flex items-center justify-center gap-4">
+            <button class="splide-prev bg-white w-14 h-14 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center hover:-translate-x-1">
+                <svg class="w-6 h-6 text-[#253244]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <div class="splide-pagination flex gap-2"></div>
+            <button class="splide-next bg-white w-14 h-14 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center hover:translate-x-1">
+                <svg class="w-6 h-6 text-[#253244]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .clip-path-polygon {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    .cookware-slider .splide__slide {
+        opacity: 0.6;
+        transform: scale(0.97) perspective(1000px) rotateY(5deg);
+        transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        filter: grayscale(20%);
+    }
+
+    .cookware-slider .splide__slide.is-active {
+        opacity: 1;
+        transform: scale(1) perspective(1000px) rotateY(0deg);
+        filter: grayscale(0%);
+    }
+
+    .splide-pagination li button {
+        background: #d1d5db;
+        width: 12px;
+        height: 4px;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .splide-pagination li button.is-active {
+        background: #f4dbb0;
+        width: 24px;
+        transform: scaleY(1.5);
+    }
+
+    @media (max-width: 768px) {
+        .cookware-slider .splide__slide {
+            transform: none !important;
+            filter: none !important;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const splide = new Splide('.cookware-slider', {
+            type: 'loop',
+            autoplay: true,
+            interval: 6000,
+            speed: 1200,
+            pauseOnHover: false,
+            dragAngleThreshold: 30,
+            perPage: 1,
+            arrows: false, // Disable default arrows
+            pagination: false, // Disable default pagination if needed
+            classes: {
+                arrows: 'splide__arrows your-custom-arrows',
+                arrow: 'splide__arrow your-custom-arrow'
+            }
+        }).mount();
+
+        // Fixed Control Buttons
+        document.querySelector('.splide-prev').addEventListener('click', () => {
+            splide.go('-1');
+        });
+
+        document.querySelector('.splide-next').addEventListener('click', () => {
+            splide.go('+1');
+        });
+
+        // Pagination Sync
+        splide.on('pagination:mounted', function(data) {
+            data.list.classList.add('splide__pagination--custom');
+        });
+
+        // GSAP Animations
+        splide.on('moved', (newIndex) => {
+            const activeSlide = splide.Components.Elements.slides[newIndex];
+            
+            gsap.from(activeSlide.querySelector('img'), {
+                duration: 1.2,
+                x: -50,
+                opacity: 0,
+                ease: "expo.out",
+                delay: 0.2
+            });
+
+            gsap.from(activeSlide.querySelectorAll('h3, button, div'), {
+                duration: 0.8,
+                y: 40,
+                opacity: 0,
+                stagger: 0.15,
+                ease: "power3.out",
+                delay: 0.4
+            });
+        });
+    });
+</script>
+</body>
+</html>
